@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from "react";
-
+import { useNavigate } from "react-router-dom";
 import { copy, linkIcon, loader, tick } from "../assets";
 import { useLazyGetSummaryQuery } from "../services/articles";
 
 const Demo = () => {
+  const navigate = useNavigate(); 
   const [article, setArticle] = useState({
     url: "",
     summary: "",
   });
   const [allArticles, setAllArticles] = useState([]);
   const [copied, setCopied] = useState("");
+  const [buttonClicked, setButtonClicked] = useState(false);
 
   // RTK lazy query
   const [getSummary, { error, isFetching }] = useLazyGetSummaryQuery();
@@ -60,6 +62,17 @@ const Demo = () => {
       handleSubmit(e);
     }
   };
+
+  
+const handleNavigateToAnotherPage = (summary) => {
+  // Set the state to indicate that the button was clicked
+  setButtonClicked(true);
+
+  // Navigate to another page with the summary
+  // You can use React Router or any other navigation method here
+  // Example using React Router:
+  navigate("/speech", { state: { summary } });
+};
 
   return (
     <section className='mt-16 w-full max-w-xl'>
@@ -138,6 +151,12 @@ const Demo = () => {
                   {article.summary}
                 </p>
               </div>
+              <button
+              onClick={() => handleNavigateToAnotherPage(article.summary)}
+               className='summary_button'
+               > 
+             View Details
+            </button>
             </div>
           )
         )}

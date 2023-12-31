@@ -1,0 +1,35 @@
+.text-to-speech-container {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px;
+  }
+  
+  .voice-select {
+    margin-left: 10px;
+  }
+  
+  .range-input {
+    margin-left: 10px;
+  }
+  
+  .btn-play,
+  .btn-pause,
+  .btn-stop {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px;
+    margin: 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .btn-pause {
+    background-color: #f39c12;
+  }
+  
+  .btn-stop {
+    background-color: #e74c3c;
+  }
+  
